@@ -1,8 +1,55 @@
 <resources>
     <string name="app_name">Connected Apartment</string>
-
+    <string name="connected">Connected</string>
+    <string name="apartment">Apartment</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="tenant_account">Tenant Account</string>
 
     <string name="action_settings">Settings</string>
+
+    <!--Reset password-->
+    <string name="send_email">Send email&#8230;</string>
+    <string name="reset_email_subject">PASSWORD RESET</string>
+    <string name="reset_email_body">"Dear Building Mangager, \n\nCould you please reset password for me? \nHere is my Tenant ID: "</string>
+    <string name="title_activity_tenant_dashboard">TenantDashboardActivity</string>
+    <string name="title_activity_bmdashboard">BMDashboardActivity</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_log_in">Log in or register</string>
+    <string name="action_log_in_short">Log in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="create_account">Create Account</string>
+    <string name="maintenance">Maintenance</string>
+    <string name="create_event">Create Event</string>
+    <string name="make_booking">Make Booking</string>
+    <string name="add_facility">Add Facility</string>
+    <string name="reset_password">Reset Password</string>
+
+    <string name="create_account_activity">Create Account</string>
+    <string name="create">Create</string>
+    <string name="tenant_id">Tenant ID</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="email">Email</string>
+    <string name="dob">Date of Birth</string>
+    <string name="contact_number_hint">0412345678</string>
+    <string name="date_hint">dd/mm/yyyy</string>
+    <string name="title_activity_register_form">RegisterFormActivity</string>
+    <string name="title_activity_create_account_result">CreateAccountResult</string>
+
+    <string name="tenant_id_colon">"Tenant ID: "</string>
+    <string name="password_colon">"Password: "</string>
 </resources>

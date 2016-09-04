@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.sepgroup4.connectedapartment.BMDashboardActivity"
+    tools:showIn="@layout/activity_bmdashboard">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/activity_bm_dashboard_create_account_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/colorShallowCream"
+            android:gravity="center"
+            android:orientation="horizontal"
+            style="@style/LayoutButton">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_account"
+                android:gravity="center"
+                style="@style/ButtonTitle"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activity_bm_dashboard_maintenance_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/activity_bm_dashboard_create_account_linearlayout"
+            android:background="@color/colorDarkCream"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/maintenance"
+                style="@style/ButtonTitle"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activity_bm_dashboard_create_event_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/activity_bm_dashboard_maintenance_linearlayout"
+            android:background="@color/colorShallowCream"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_event"
+                style="@style/ButtonTitle"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activity_bm_dashboard_make_booking_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/activity_bm_dashboard_create_event_linearlayout"
+            android:background="@color/colorDarkCream"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/make_booking"
+                style="@style/ButtonTitle"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activity_bm_dashboard_add_facility_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/activity_bm_dashboard_make_booking_linearlayout"
+            android:background="@color/colorShallowCream"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_facility"
+                style="@style/ButtonTitle"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activity_bm_dashboard_reset_password_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/activity_bm_dashboard_add_facility_linearlayout"
+            android:background="@color/colorDarkCream"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_password"
+                style="@style/ButtonTitle"/>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
