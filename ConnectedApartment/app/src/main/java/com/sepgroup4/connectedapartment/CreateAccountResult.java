@@ -32,8 +32,8 @@ public class CreateAccountResult extends AppCompatActivity {
         mTempPasswordTv = (TextView) findViewById(R.id.activity_create_account_result_password_textview);
 
         Intent intent = getIntent();
-        String s = intent.getExtras().getString(Constants.TENANT_ID);
-        Log.i("TAG", intent.getStringExtra(Constants.TENANT_ID));
+//        String s = intent.getExtras().getString(Constants.TENANT_ID);
+//        Log.i("TAG", intent.getStringExtra(Constants.TENANT_ID));
         mTenantIdTv.append(intent.getStringExtra(Constants.TENANT_ID));
         mTempPasswordTv.append(getGeneratedPassword());
     }

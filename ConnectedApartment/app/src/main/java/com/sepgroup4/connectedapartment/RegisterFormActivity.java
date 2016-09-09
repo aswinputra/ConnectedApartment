@@ -44,7 +44,7 @@ public class RegisterFormActivity extends AppCompatActivity {
         if (id == R.id.action_create_account) {
             Intent intent = new Intent(RegisterFormActivity.this, CreateAccountResult.class);
             intent.putExtra(Constants.TENANT_ID, mTenantIdEt.getText().toString());
-            Log.i("TAG", mTenantIdEt.getText().toString());
+
             startActivity(intent);
             return true;
         }

@@ -45,7 +45,7 @@
     <string name="contact_number">Contact Number</string>
     <string name="email">Email</string>
     <string name="dob">Date of Birth</string>
-    <string name="contact_number_hint">0412345678</string>
+    <string name="contact_number_hint">"e.g. 0412345678"</string>
     <string name="date_hint">dd/mm/yyyy</string>
     <string name="title_activity_register_form">RegisterFormActivity</string>
     <string name="title_activity_create_account_result">CreateAccountResult</string>
