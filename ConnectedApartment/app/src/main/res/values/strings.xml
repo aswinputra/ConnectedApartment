@@ -52,4 +52,10 @@
 
     <string name="tenant_id_colon">"Tenant ID: "</string>
     <string name="password_colon">"Password: "</string>
+
+    <string name="hey_there">"Hey, There"</string>
+    <string name="my_profile">My Profile</string>
+    <string name="book_facility">Book Facility</string>
+    <string name="view_booking">View Booking</string>
+
 </resources>

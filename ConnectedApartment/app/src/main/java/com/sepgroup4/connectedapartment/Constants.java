@@ -8,7 +8,8 @@ public class Constants {
     public static final String CONTENT_TYPE = "Content-Type";
     public static final String APP_KEY_VALUE = "Appkey value";
     public static final String CONTENT_TYPE_VALUE = "Content-Type value";
-    public static final String BASE_URL_ADDRESS = "www.stuff.com";
+    public static final String BASE_URL_ADDRESS = "http://connapswebapi20160926090904.azurewebsites.net/";
+    public static String NULL = "null";
 
     //For emails to building manager
     public static final String MAIL_TO = "mailto";
