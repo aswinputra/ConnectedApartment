@@ -9,6 +9,8 @@
 
     <string name="action_settings">Settings</string>
 
+    <string name="network_is_unavailable">"Network is unavailable"</string>
+
     <!--Reset password-->
     <string name="send_email">Send email&#8230;</string>
     <string name="reset_email_subject">PASSWORD RESET</string>

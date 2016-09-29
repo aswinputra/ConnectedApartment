@@ -3,25 +3,25 @@ package com.sepgroup4.connectedapartment.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RegisterResponse {
+public class LoginResponse {
     @SerializedName("access_token")
     @Expose
-    public String accessToken;
+    private String accessToken;
     @SerializedName("token_type")
     @Expose
-    public String tokenType;
+    private String tokenType;
     @SerializedName("expires_in")
     @Expose
-    public Integer expiresIn;
+    private Integer expiresIn;
     @SerializedName("userName")
     @Expose
-    public String userName;
+    private String userName;
     @SerializedName(".issued")
     @Expose
-    public String issued;
+    private String issued;
     @SerializedName(".expires")
     @Expose
-    public String expires;
+    private String expires;
 
     public String getAccessToken() {
         return accessToken;

@@ -12,7 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestClient {
-    private APIService mApiService;
+    private ConnectedApartmentRestApi mConnectedApartmentRestApi;
 
     public RestClient() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
@@ -38,10 +38,10 @@ public class RestClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
-        mApiService = retrofit.create(APIService.class);
+        mConnectedApartmentRestApi = retrofit.create(ConnectedApartmentRestApi.class);
     }
 
-    public APIService getmApiService() {
-        return mApiService;
+    public ConnectedApartmentRestApi getConnectedApartmentRestApi() {
+        return mConnectedApartmentRestApi;
     }
 }

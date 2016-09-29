@@ -1,25 +1,27 @@
 package com.sepgroup4.connectedapartment.Rest;
 
-import com.sepgroup4.connectedapartment.Model.RegisterRequest;
-import com.sepgroup4.connectedapartment.Model.RegisterResponse;
+import com.sepgroup4.connectedapartment.Model.LoginRequest;
+import com.sepgroup4.connectedapartment.Model.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-public interface APIService {
+public interface ConnectedApartmentRestApi {
 
     @FormUrlEncoded
     @POST("Token")
-    Call<RegisterResponse> registerTenant(@Body RegisterRequest registerRequest);
-//
+    Call<LoginResponse> authenticate(@Body LoginRequest loginRequest);
+
 //    @POST("facility/book")
 //    Call<FacilityBookingResponse> bookFacility(@Body FacilityBookingRequest facilityBookingRequest);
 //
 //    @GET("facility/status")
 //    Call<FacilityStatus> getFacilityStatus(@Body FacilityStatusRequest facilityStatusRequest);
+
+//    @POST("api/Account/RegisterTenant")
+//    Call<> registerTenant()
 
 }
 

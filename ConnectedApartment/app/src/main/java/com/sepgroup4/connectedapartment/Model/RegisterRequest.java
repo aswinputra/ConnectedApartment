@@ -1,37 +1,27 @@
 package com.sepgroup4.connectedapartment.Model;
 
-/**
- * Created by aswinhartono on 26/09/2016.
- */
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class RegisterRequest {
-    private String grant_type;
-    private String username;
 
-    public String getGrant_type() {
-        return grant_type;
-    }
-
-    public void setGrant_type(String grant_type) {
-        this.grant_type = grant_type;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String password;
-
+    @SerializedName("Email")
+    @Expose
+    private String email;
+    @SerializedName("FirstName")
+    @Expose
+    private String firstName;
+    @SerializedName("LastName")
+    @Expose
+    private String lastName;
+    @SerializedName("DoB")
+    @Expose
+    private String doB;
+    @SerializedName("Phone")
+    @Expose
+    private String phone;
+    @SerializedName("ApartmentId")
+    @Expose
+    private Integer apartmentId;
 
 }
