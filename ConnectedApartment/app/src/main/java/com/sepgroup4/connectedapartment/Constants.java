@@ -12,7 +12,6 @@ public class Constants {
     public static final String NULL = "null";
 
 
-
     //For emails to building manager
     public static final String MAIL_TO = "mailto";
     public static final String BUILDING_MANAGER_EMAIL = "bondicercle@gmail.com";

@@ -4,16 +4,17 @@ package com.sepgroup4.connectedapartment.Model;
  * Created by aswinhartono on 26/09/2016.
  */
 public class LoginRequest {
-    private String grant_type;
+    private static final String grantType = "password";
     private String username;
     private String password;
 
-    public String getGrant_type() {
-        return grant_type;
+    public LoginRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public void setGrant_type(String grant_type) {
-        this.grant_type = grant_type;
+    public String getGrantType() {
+        return grantType;
     }
 
     public String getUsername() {
@@ -31,8 +32,5 @@ public class LoginRequest {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
 
 }

@@ -10,4 +10,5 @@
     <dimen name="tenant_dashboard_text_size">10sp</dimen>
     <dimen name="tenant_name_size">18sp</dimen>
     <dimen name="tenant_ID">15sp</dimen>
+    <dimen name="progress_bar_padding">150dp</dimen>
 </resources>
