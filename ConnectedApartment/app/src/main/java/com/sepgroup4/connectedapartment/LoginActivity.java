@@ -18,6 +18,7 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.sepgroup4.connectedapartment.Model.LoginRequest;
 import com.sepgroup4.connectedapartment.Model.LoginResponse;
+import com.sepgroup4.connectedapartment.Model.LoginSession;
 import com.sepgroup4.connectedapartment.Rest.Controller.PersonController;
 import com.sepgroup4.connectedapartment.Rest.Handlers.AuthenticationHandler;
 import com.sepgroup4.connectedapartment.Rest.RestClientManager;
@@ -82,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
     @Override
     public void onAuthenticationSuccess(LoginResponse loginResponse) {
         mProgressBar.setVisibility(View.GONE);
+        LoginSession.userToken = "bearer " + loginResponse.getAccessToken();
         Utilities.displayToast(getApplicationContext(), loginResponse.getAccessToken());
     }
 
