@@ -59,14 +59,19 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
 //                    startActivity(intent);
 //                }
                 login(mUsernameEt.getText().toString(), mPasswordEt.getText().toString());
+                isBM();
             }
         });
 
 
     }
 
-    private Boolean isBM(String username) {
-        return username.equals("building manager");
+    private void isBM() {
+        try {
+            RestClientManager.getInstance(LoginActivity.this).getPersonController().getUserInfo(this);
+        } catch (NetworkErrorException e) {
+            Utilities.displayToast(getApplicationContext(), e.getMessage());
+        }
     }
 
     private Boolean isPasswordCorrect(String password) {
