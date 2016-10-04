@@ -11,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -21,10 +22,12 @@ public interface ConnectedApartmentRestApi {
     Call<LoginResponse> authenticate(@Field("grant_type") String grantType, @Field("username") String username,
                                      @Field("password") String password);
 
+    @GET("api/Account/UserInfo")
     Call<UserInfoResponse> getUserInfo(@Query("Authorization") String userToken);
 
     Call<RequestResponse> resetPassword(@Body NewPassword newPassword);
 
+    @POST("api/Account/RegisterTenant")
     Call<RegisterResponse> registerTenant(@Body RegisterRequest registerRequest);
 
 //    @POST("facility/book")
