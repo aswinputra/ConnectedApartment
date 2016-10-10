@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Controllers.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.LogIn">
             <intent-filter>
@@ -27,27 +27,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Controllers.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TenantDashboardActivity"
+            android:name=".Controllers.TenantDashboardActivity"
             android:label="@string/dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".BMDashboardActivity"
+            android:name=".Controllers.BMDashboardActivity"
             android:label="@string/dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RegisterFormActivity"
+            android:name=".Controllers.RegisterFormActivity"
             android:label="@string/create_account"
-            android:parentActivityName=".TenantDashboardActivity"
+            android:parentActivityName=".Controllers.TenantDashboardActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.sepgroup4.connectedapartment.TenantDashboardActivity" />
+                android:value="com.sepgroup4.connectedapartment.Controllers.TenantDashboardActivity" />
         </activity>
-
+        <activity
+            android:name=".Controllers.ChangePasswordActivity"
+            android:label="@string/title_activity_reset_password"
+            android:parentActivityName=".Controllers.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sepgroup4.connectedapartment.Controllers.LoginActivity" />
+        </activity>
     </application>
 
 </manifest>

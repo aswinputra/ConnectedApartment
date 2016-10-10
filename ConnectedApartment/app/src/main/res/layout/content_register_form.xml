@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.sepgroup4.connectedapartment.RegisterFormActivity"
-    tools:showIn="@layout/activity_register_form"
-    android:orientation="vertical">
+    tools:context="com.sepgroup4.connectedapartment.Controllers.RegisterFormActivity"
+    tools:showIn="@layout/activity_register_form">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/activity_register_form_profile_first_name_text_input_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/activity_register_form_tenant_first_name_edittext"
@@ -28,7 +29,8 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/activity_register_form_profile_last_name_text_input_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/activity_register_form_tenant_last_name_edittext"
@@ -40,36 +42,43 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/activity_register_form_contact_number_text_input_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/activity_register_form_tenant_contact_number_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contact Number" />
+            android:hint="Contact Number"
+            android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/activity_register_form_profile_email_text_input_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        app:errorTextAppearance="@style/TextInputLayoutErrorText">
 
         <EditText
             android:id="@+id/activity_register_form_tenant_email_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/activity_register_form_profile_DOB_text_input_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
 
         <EditText
             android:id="@+id/activity_register_form_tenant_dob_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusable="true"
             android:hint="Date of Birth" />
     </android.support.design.widget.TextInputLayout>
 
@@ -77,14 +86,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Apartment Number"/>
+            android:text="Apartment Number" />
+
         <Spinner
+            android:id="@+id/activity_register_form_tenant_apartment_number_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/activity_register_form_tenant_apartment_number_spinner"></Spinner>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </LinearLayout>

@@ -1,10 +1,10 @@
 package com.sepgroup4.connectedapartment.Rest.Controller;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.sepgroup4.connectedapartment.Constants;
+import com.sepgroup4.connectedapartment.Model.Constants;
+import com.sepgroup4.connectedapartment.Model.ChangePassword;
 import com.sepgroup4.connectedapartment.Model.LoginRequest;
 import com.sepgroup4.connectedapartment.Model.LoginResponse;
 import com.sepgroup4.connectedapartment.Model.LoginSession;
@@ -12,6 +12,7 @@ import com.sepgroup4.connectedapartment.Model.NewPassword;
 import com.sepgroup4.connectedapartment.Model.RegisterRequest;
 import com.sepgroup4.connectedapartment.Model.RegisterResponse;
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
+import com.sepgroup4.connectedapartment.Model.ResetPasswordResponse;
 import com.sepgroup4.connectedapartment.Rest.Handlers.AuthenticationHandler;
 import com.sepgroup4.connectedapartment.Rest.Handlers.RestResponseHandler;
 import com.sepgroup4.connectedapartment.Rest.RestClient;
@@ -36,12 +37,15 @@ public class PersonController {
     }
 
     public void getUserInfo(RestResponseHandler handler){
-        Log.i(Constants.LOG_TAG, "Calling getUserInfo");
         new GetUserInfoTask(handler).execute();
     }
 
-    public void changePassword(NewPassword newPassword, RestResponseHandler handler){
-        new ChangePasswordTask(handler).execute(newPassword);
+    public void resetPassword(String email, RestResponseHandler handler){
+        new ResetPasswordTask(handler).execute(email);
+    }
+
+    public void changePassword(ChangePassword changePassword, RestResponseHandler handler){
+        new ChangePasswordTask(handler).execute(changePassword);
     }
 
     public void registerTenant(RegisterRequest registerRequest, RestResponseHandler handler){
@@ -99,7 +103,6 @@ public class PersonController {
             UserInfoResponse userInfoResponse = null;
             try {
                 userInfoResponse = call.execute().body();
-                int i = 0;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -122,25 +125,24 @@ public class PersonController {
         }
     }
 
-    private class ChangePasswordTask extends AsyncTask<NewPassword, Void, RequestResponse>{
+    private class ResetPasswordTask extends AsyncTask<String, Void, RequestResponse>{
 
         private RestResponseHandler handler;
 
-        public ChangePasswordTask(RestResponseHandler handler) {
+        public ResetPasswordTask(RestResponseHandler handler) {
             this.handler = handler;
         }
 
         @Override
-        protected RequestResponse doInBackground(NewPassword... newPasswords) {
+        protected RequestResponse doInBackground(String... emails) {
 
-            Call<RequestResponse> call = mRestClient.getConnectedApartmentRestApi().changePassword(newPasswords[0]);
+            Call<ResetPasswordResponse> call = mRestClient.getConnectedApartmentRestApi().resetPassword(emails[0]);
             RequestResponse requestResponse = null;
             try {
                 requestResponse = call.execute().body();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             return requestResponse;
         }
 
@@ -182,7 +184,7 @@ public class PersonController {
         @Override
         protected void onPostExecute(RegisterResponse registerResponse) {
             if(registerResponse == null){
-                handler.onResponseFailure("Something's wrong, please try again later");
+                handler.onResponseFailure("This email has already been taken");
             }else{
                 if(registerResponse.getSuccess()){
                     handler.onResponseSuccess(registerResponse);
@@ -191,6 +193,25 @@ public class PersonController {
                 }
             }
             super.onPostExecute(registerResponse);
+        }
+    }
+
+    private class ChangePasswordTask extends AsyncTask<ChangePassword, Void, RequestResponse>{
+
+        private RestResponseHandler handler;
+
+        public ChangePasswordTask(RestResponseHandler handler) {
+            this.handler = handler;
+        }
+
+        @Override
+        protected RequestResponse doInBackground(ChangePassword... params) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(RequestResponse requestResponse) {
+            super.onPostExecute(requestResponse);
         }
     }
 }

@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.sepgroup4.connectedapartment.R;
+import com.sepgroup4.connectedapartment.Rest.Controller.BuildingManagerController;
 import com.sepgroup4.connectedapartment.Rest.Controller.PersonController;
 
 /**
@@ -36,10 +37,16 @@ public class RestClientManager {
     }
 
     private final RestClient mRestClient = new RestClient();
+
     private final PersonController mPersonController = new PersonController(mRestClient);
+    private final BuildingManagerController mBuildingManagerController = new BuildingManagerController(mRestClient);
 
     public PersonController getPersonController() {
         return mPersonController;
+    }
+
+    public BuildingManagerController getBuildingManagerController() {
+        return mBuildingManagerController;
     }
 
 }

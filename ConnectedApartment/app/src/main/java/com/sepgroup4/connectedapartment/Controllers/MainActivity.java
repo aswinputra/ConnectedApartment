@@ -1,4 +1,4 @@
-package com.sepgroup4.connectedapartment;
+package com.sepgroup4.connectedapartment.Controllers;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.sepgroup4.connectedapartment.Model.Constants;
+import com.sepgroup4.connectedapartment.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_logout) {
             return true;
         }
 

@@ -1,4 +1,4 @@
-package com.sepgroup4.connectedapartment;
+package com.sepgroup4.connectedapartment.Model;
 
 /**
  * Created by kiman on 30/08/2016.

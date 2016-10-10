@@ -1,8 +1,6 @@
 package com.sepgroup4.connectedapartment.Rest;
 
-import android.util.Log;
-
-import com.sepgroup4.connectedapartment.Constants;
+import com.sepgroup4.connectedapartment.Model.Constants;
 import com.sepgroup4.connectedapartment.Model.LoginSession;
 
 import java.io.IOException;

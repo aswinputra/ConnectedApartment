@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.sepgroup4.connectedapartment.LoginActivity"
+    tools:context="com.sepgroup4.connectedapartment.Controllers.LoginActivity"
     android:background="@drawable/building_background">
 
     <TextView
@@ -35,7 +35,7 @@
 
     <!-- Login progress -->
     <ProgressBar
-        android:id="@+id/login_progress"
+        android:id="@+id/activity_login_progress_bar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,29 +46,26 @@
         android:paddingBottom="@dimen/progress_bar_padding"/>
 
     <ScrollView
-        android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/activity_login_apartment_textview">
 
         <LinearLayout
-            android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/activity_login_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_username"
                 android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:singleLine="true" />
+                android:maxLines="1" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/activity_login_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_password"
@@ -76,11 +73,10 @@
                 android:imeActionLabel="@string/action_log_in_short"
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
-                android:maxLines="1"
-                android:singleLine="true" />
+                android:maxLines="1"/>
 
             <Button
-                android:id="@+id/email_sign_in_button"
+                android:id="@+id/activity_login_email_sign_in_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,6 +84,14 @@
                 android:text="@string/action_log_in_short"
                 android:textStyle="bold"
                 android:theme="@style/RaisedButton"/>
+
+            <TextView
+                android:id="@+id/activity_login_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_password"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
     </ScrollView>

@@ -5,15 +5,15 @@ package com.sepgroup4.connectedapartment.Model;
  */
 public class NewPassword {
 
-    private String newPassword;
-    private String confirmPassword;
+    private String NewPassword;
+    private String ConfirmPassword;
 
     public NewPassword(String newPassword, String confirmPassword) {
-        this.newPassword = newPassword;
-        this.confirmPassword = confirmPassword;
+        this.NewPassword = newPassword;
+        this.ConfirmPassword = confirmPassword;
     }
 
     public boolean isMatched(){
-        return newPassword.equals(confirmPassword);
+        return NewPassword.equals(ConfirmPassword);
     }
 }

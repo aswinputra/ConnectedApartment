@@ -18,6 +18,7 @@
     <string name="title_activity_tenant_dashboard">TenantDashboardActivity</string>
     <string name="title_activity_bmdashboard">BMDashboardActivity</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="forgot_password"><u>Forgot password?</u></string>
 
     <!-- Strings related to login -->
     <string name="prompt_username">Username</string>
@@ -77,4 +78,12 @@
     <string name="choose_time">Choose Time</string>
     <string name="choose_day">Choose Day</string>
 
+    <string name="log_out">Log out</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+
+    <string name="new_password">New password</string>
+    <string name="confirm_password">Confirm password</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

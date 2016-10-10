@@ -7,22 +7,22 @@ public class RegisterRequest {
 
     @SerializedName("Email")
     @Expose
-    private String email;
+    public String email;
     @SerializedName("FirstName")
     @Expose
-    private String firstName;
+    public String firstName;
     @SerializedName("LastName")
     @Expose
-    private String lastName;
+    public String lastName;
     @SerializedName("DoB")
     @Expose
-    private String doB;
+    public String doB;
     @SerializedName("Phone")
     @Expose
-    private String phone;
+    public String phone;
     @SerializedName("ApartmentId")
     @Expose
-    private Integer apartmentId;
+    public Integer apartmentId;
 
     public RegisterRequest(String email, String firstName, String lastName, String doB, String phone, Integer apartmentId) {
         this.email = email;
