@@ -9,8 +9,8 @@ public class Constants {
     public static final String APP_KEY_VALUE = "Appkey value";
     public static final String CONTENT_TYPE_VALUE = "Content-Type value";
     public static final String BASE_URL_ADDRESS = "http://connapswebapi20160926090904.azurewebsites.net/";
-    public static final String NULL = "null";
-
+    public static final String NULL = "";
+    public static final String AUTHORIZATION = "Authorization";
 
     //For emails to building manager
     public static final String MAIL_TO = "mailto";
@@ -18,4 +18,5 @@ public class Constants {
 
     public static final String TENANT_ID = "tenantid";
 
+    public static final String LOG_TAG = "sep";
 }

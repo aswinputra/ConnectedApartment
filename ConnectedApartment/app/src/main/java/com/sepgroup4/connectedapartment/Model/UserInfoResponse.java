@@ -5,14 +5,18 @@ package com.sepgroup4.connectedapartment.Model;
  */
 public class UserInfoResponse extends RequestResponse{
 
-    private UserInfo userInfo;
+    private UserInfo Result;
 
-    public UserInfoResponse(Boolean isSuccess, String message, UserInfo userInfo) {
+    public UserInfoResponse(Boolean isSuccess, String message, UserInfo result) {
         super(isSuccess, message);
-        this.userInfo = userInfo;
+        Result = result;
     }
 
     public UserInfo getUserInfo() {
-        return userInfo;
+        return Result;
+    }
+
+    public void setResult(UserInfo result) {
+        Result = result;
     }
 }

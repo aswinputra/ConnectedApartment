@@ -1,6 +1,9 @@
 package com.sepgroup4.connectedapartment.Rest;
 
+import android.util.Log;
+
 import com.sepgroup4.connectedapartment.Constants;
+import com.sepgroup4.connectedapartment.Model.LoginSession;
 
 import java.io.IOException;
 
@@ -24,6 +27,7 @@ public class RestClient {
                 Request request = original.newBuilder()
                         .header(Constants.APP_KEY, Constants.APP_KEY_VALUE)
                         .header(Constants.CONTENT_TYPE, Constants.CONTENT_TYPE_VALUE)
+                        .header(Constants.AUTHORIZATION, LoginSession.userToken)
                         .method(original.method(), original.body())
                         .build();
 

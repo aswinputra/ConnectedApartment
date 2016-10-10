@@ -23,7 +23,7 @@ public interface ConnectedApartmentRestApi {
                                      @Field("password") String password);
 
     @GET("api/Account/UserInfo")
-    Call<UserInfoResponse> getUserInfo(@Query("Authorization") String userToken);
+    Call<UserInfoResponse> getUserInfo();
 
     Call<RequestResponse> changePassword(@Body NewPassword newPassword);
 

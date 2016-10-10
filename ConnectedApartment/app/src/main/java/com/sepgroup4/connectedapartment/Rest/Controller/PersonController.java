@@ -1,7 +1,10 @@
 package com.sepgroup4.connectedapartment.Rest.Controller;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
+import com.sepgroup4.connectedapartment.Constants;
 import com.sepgroup4.connectedapartment.Model.LoginRequest;
 import com.sepgroup4.connectedapartment.Model.LoginResponse;
 import com.sepgroup4.connectedapartment.Model.LoginSession;
@@ -33,7 +36,8 @@ public class PersonController {
     }
 
     public void getUserInfo(RestResponseHandler handler){
-        new GetUserInfoTask(handler);
+        Log.i(Constants.LOG_TAG, "Calling getUserInfo");
+        new GetUserInfoTask(handler).execute();
     }
 
     public void changePassword(NewPassword newPassword, RestResponseHandler handler){
@@ -90,10 +94,12 @@ public class PersonController {
 
         @Override
         protected UserInfoResponse doInBackground(Void... params) {
-            Call<UserInfoResponse> call = mRestClient.getConnectedApartmentRestApi().getUserInfo(LoginSession.userToken);
+            Log.i(Constants.LOG_TAG, LoginSession.userToken);
+            Call<UserInfoResponse> call = mRestClient.getConnectedApartmentRestApi().getUserInfo();
             UserInfoResponse userInfoResponse = null;
             try {
                 userInfoResponse = call.execute().body();
+                int i = 0;
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -1,53 +1,71 @@
 package com.sepgroup4.connectedapartment.Model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by kiman on 4/10/2016.
  */
 
 public class UserInfo {
-    private String Email;
-    private Boolean HasRegistered;
-    private String LoginProvider;
-    private List<String> Roles;
 
-    public UserInfo(String email, Boolean hasRegistered, String loginProvider, List<String> roles) {
-        Email = email;
-        HasRegistered = hasRegistered;
-        LoginProvider = loginProvider;
-        Roles = roles;
+    @SerializedName("Email")
+    @Expose
+    public String email;
+    @SerializedName("HasRegistered")
+    @Expose
+    public Boolean hasRegistered;
+    @SerializedName("LoginProvider")
+    @Expose
+    public Object loginProvider;
+    @SerializedName("Roles")
+    @Expose
+    public List<String> roles = new ArrayList<String>();
+
+
+    public UserInfo(String email, Boolean hasRegistered, Object loginProvider, List<String> roles) {
+        this.email = email;
+        this.hasRegistered = hasRegistered;
+        this.loginProvider = loginProvider;
+        this.roles = roles;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public Boolean getHasRegistered() {
-        return HasRegistered;
+        return hasRegistered;
     }
 
     public void setHasRegistered(Boolean hasRegistered) {
-        HasRegistered = hasRegistered;
+        this.hasRegistered = hasRegistered;
     }
 
-    public String getLoginProvider() {
-        return LoginProvider;
+    public Object getLoginProvider() {
+        return loginProvider;
     }
 
-    public void setLoginProvider(String loginProvider) {
-        LoginProvider = loginProvider;
+    public void setLoginProvider(Object loginProvider) {
+        this.loginProvider = loginProvider;
     }
 
     public List<String> getRoles() {
-        return Roles;
+        return roles;
     }
 
     public void setRoles(List<String> roles) {
-        Roles = roles;
+        this.roles = roles;
+    }
+
+    public String getRole() {
+        return roles.get(0);
     }
 }
