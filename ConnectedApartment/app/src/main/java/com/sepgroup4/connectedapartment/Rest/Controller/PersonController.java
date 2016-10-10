@@ -15,7 +15,6 @@ import com.sepgroup4.connectedapartment.Rest.RestClient;
 import com.sepgroup4.connectedapartment.Model.UserInfoResponse;
 
 import java.io.IOException;
-import java.util.Calendar;
 
 import retrofit2.Call;
 
@@ -37,8 +36,8 @@ public class PersonController {
         new GetUserInfoTask(handler);
     }
 
-    public void resetPassword(NewPassword newPassword, RestResponseHandler handler){
-        new ResetPasswordTask(handler);
+    public void changePassword(NewPassword newPassword, RestResponseHandler handler){
+        new ChangePasswordTask(handler);
     }
 
     public void registerTenant(RegisterRequest registerRequest, RestResponseHandler handler){
@@ -117,18 +116,18 @@ public class PersonController {
         }
     }
 
-    private class ResetPasswordTask extends AsyncTask<NewPassword, Void, RequestResponse>{
+    private class ChangePasswordTask extends AsyncTask<NewPassword, Void, RequestResponse>{
 
         private RestResponseHandler handler;
 
-        public ResetPasswordTask(RestResponseHandler handler) {
+        public ChangePasswordTask(RestResponseHandler handler) {
             this.handler = handler;
         }
 
         @Override
         protected RequestResponse doInBackground(NewPassword... newPasswords) {
 
-            Call<RequestResponse> call = mRestClient.getConnectedApartmentRestApi().resetPassword(newPasswords[0]);
+            Call<RequestResponse> call = mRestClient.getConnectedApartmentRestApi().changePassword(newPasswords[0]);
             RequestResponse requestResponse = null;
             try {
                 requestResponse = call.execute().body();

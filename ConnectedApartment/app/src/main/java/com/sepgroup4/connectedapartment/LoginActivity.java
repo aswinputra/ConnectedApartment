@@ -51,24 +51,18 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (isBM(mUsernameEt.getText().toString()) && isPasswordCorrect(mPasswordEt.getText().toString())) {
-//                    Intent intent = new Intent(LoginActivity.this, BMDashboardActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    Intent intent = new Intent(LoginActivity.this, TenantDashboardActivity.class);
-//                    startActivity(intent);
-//                }
                 login(mUsernameEt.getText().toString(), mPasswordEt.getText().toString());
-                isBM();
+
             }
         });
-
-
     }
 
     private void isBM() {
+        Utilities.displayToast(getApplicationContext(), "isBM is running");
+        mProgressBar.setVisibility(View.VISIBLE);
         try {
             RestClientManager.getInstance(LoginActivity.this).getPersonController().getUserInfo(this);
+            Utilities.displayToast(getApplicationContext(), "getting user info");
         } catch (NetworkErrorException e) {
             Utilities.displayToast(getApplicationContext(), e.getMessage());
         }
@@ -93,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
         mProgressBar.setVisibility(View.GONE);
         LoginSession.userToken = "bearer " + loginResponse.getAccessToken();
         Utilities.displayToast(getApplicationContext(), loginResponse.getAccessToken());
+        isBM();
     }
 
     @Override
@@ -107,12 +102,10 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
         UserInfoResponse userInfoResponse = (UserInfoResponse) requestResponse;
         String role = userInfoResponse.getUserInfo().getRoles().get(0);
 
-        if (role.equals("BuildingManager") ) {
+        if (role.equals("BuildingManager")) {
             Intent intent = new Intent(LoginActivity.this, BMDashboardActivity.class);
             startActivity(intent);
-        }
-        else
-        {
+        } else {
             Intent intent = new Intent(LoginActivity.this, TenantDashboardActivity.class);
             startActivity(intent);
         }
