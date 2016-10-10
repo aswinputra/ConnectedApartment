@@ -40,6 +40,8 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
         mPasswordEt = (EditText) findViewById(R.id.password);
         mProgressBar = (ProgressBar) findViewById(R.id.login_progress);
 
+        mUsernameEt.setText("bill.mourtzis@gmail.com");
+        mPasswordEt.setText("aA123!@#");
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override

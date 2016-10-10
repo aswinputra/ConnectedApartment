@@ -36,8 +36,7 @@ public interface ConnectedApartmentRestApi {
 //    @GET("facility/status")
 //    Call<FacilityStatus> getFacilityStatus(@Body FacilityStatusRequest facilityStatusRequest);
 
-//    @POST("api/Account/RegisterTenant")
-//    Call<> registerTenant()
+
 
 }
 

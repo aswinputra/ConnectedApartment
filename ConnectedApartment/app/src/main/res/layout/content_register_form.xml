@@ -14,25 +14,27 @@
     android:orientation="vertical">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/activity_register_form_tenant_id_text_input_layout"
+        android:id="@+id/activity_register_form_profile_first_name_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/activity_register_form_tenant_first_name_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tenant ID" />
+            android:hint="First Name" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/activity_register_form_profile_name_text_input_layout"
+        android:id="@+id/activity_register_form_profile_last_name_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/activity_register_form_tenant_last_name_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="Last Name" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -41,6 +43,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/activity_register_form_tenant_contact_number_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contact Number" />
@@ -52,6 +55,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/activity_register_form_tenant_email_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email" />
@@ -63,19 +67,24 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/activity_register_form_tenant_dob_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Date of Birth" />
     </android.support.design.widget.TextInputLayout>
 
-
-    <Button
-        android:id="@+id/register_tenant_button"
-        style="?android:textAppearanceSmall"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/register"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apartment Number"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_register_form_tenant_apartment_number_spinner"></Spinner>
+    </LinearLayout>
 
 </LinearLayout>

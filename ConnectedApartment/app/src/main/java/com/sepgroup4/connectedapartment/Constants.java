@@ -17,6 +17,10 @@ public class Constants {
     public static final String BUILDING_MANAGER_EMAIL = "bondicercle@gmail.com";
 
     public static final String TENANT_ID = "tenantid";
+    public static final String TENANT_NAME = "tenantname";
+    public static final String TENANT_CONTACT_NUMBER = "tenantcontactnumber";
+    public static final String TENANT_EMAIL = "tenantemail";
+    public static final String TENANT_DOB = "tenantdob";
 
     public static final String LOG_TAG = "sep";
 }

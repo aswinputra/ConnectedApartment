@@ -41,11 +41,11 @@ public class PersonController {
     }
 
     public void changePassword(NewPassword newPassword, RestResponseHandler handler){
-        new ChangePasswordTask(handler);
+        new ChangePasswordTask(handler).execute(newPassword);
     }
 
     public void registerTenant(RegisterRequest registerRequest, RestResponseHandler handler){
-
+        new RegisterTenant(handler).execute(registerRequest);
     }
 
     private class AuthenticateTask extends AsyncTask<LoginRequest, Void, LoginResponse>{
