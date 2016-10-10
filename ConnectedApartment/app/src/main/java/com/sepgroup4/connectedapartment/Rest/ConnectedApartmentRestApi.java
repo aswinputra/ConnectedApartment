@@ -25,7 +25,7 @@ public interface ConnectedApartmentRestApi {
     @GET("api/Account/UserInfo")
     Call<UserInfoResponse> getUserInfo(@Query("Authorization") String userToken);
 
-    Call<RequestResponse> resetPassword(@Body NewPassword newPassword);
+    Call<RequestResponse> changePassword(@Body NewPassword newPassword);
 
     @POST("api/Account/RegisterTenant")
     Call<RegisterResponse> registerTenant(@Body RegisterRequest registerRequest);
