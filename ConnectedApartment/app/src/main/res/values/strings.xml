@@ -60,4 +60,20 @@
     <string name="book_facility">Book Facility</string>
     <string name="view_booking">View Booking</string>
 
+    <string name="facility_name">Facility Name</string>
+    <string name="facility_location">Level</string>
+
+    <string name="future_booking">Future Booking</string>
+
+    <string name="view_booking_hint1">30/12/2016 Halloween Pool Party</string>
+    <string name="view_booking_hint2">Location: Park Lane Tower</string>
+    <string name="view_booking_hint3">Time: 20:00 - 21:00</string>
+
+
+    <string name="register">Register</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="choose_facility">Choose Facility</string>
+    <string name="choose_time">Choose Time</string>
+    <string name="choose_day">Choose Day</string>
 </resources>
