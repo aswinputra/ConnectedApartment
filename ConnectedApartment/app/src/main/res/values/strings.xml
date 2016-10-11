@@ -44,6 +44,8 @@
     <string name="create">Create</string>
     <string name="tenant_id">Tenant ID</string>
     <string name="name">Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
     <string name="address">Address</string>
     <string name="contact_number">Contact Number</string>
     <string name="email">Email</string>

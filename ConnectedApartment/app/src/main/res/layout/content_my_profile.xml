@@ -18,18 +18,25 @@
         android:layout_height="wrap_content"
         android:text="@string/hey_there"/>
 
-    <EditText
-        android:id="@+id/activity_my_profile_tenant_name_edittext"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Tenant Name"
-        android:layout_width="wrap_content" />
-
     <TextView
-        android:id="@+id/activity_my_profile_tenant_id_edittext"
+        android:id="@+id/activity_my_profile_tenant_id_textview"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="Tenant Id"
+        android:hint="@string/tenant_id"
+        android:layout_width="wrap_content" />
+
+    <EditText
+        android:id="@+id/activity_my_profile_tenant_first_name_edittext"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="First Name"
+        android:layout_width="wrap_content" />
+
+    <EditText
+        android:id="@+id/activity_my_profile_tenant_last_name_edittext"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Last Name"
         android:layout_width="wrap_content" />
 
     <android.support.design.widget.TextInputLayout
@@ -38,20 +45,10 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/activity_my_profile_contact_number_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contact Number" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/activity_add_my_profile_email_text_input_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:hint="@string/contact_number" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -60,9 +57,10 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/activity_my_profile_DOB_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date of Birth" />
+            android:hint="@string/dob" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

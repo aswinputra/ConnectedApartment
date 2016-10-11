@@ -15,4 +15,8 @@ public class MyActivityManager {
         LoginSession.userToken = Constants.NULL;
         return new Intent(context, LoginActivity.class);
     }
+
+    public static Intent intentToChangePaswordActivity(Context context){
+        return new Intent(context, ChangePasswordActivity.class);
+    }
 }

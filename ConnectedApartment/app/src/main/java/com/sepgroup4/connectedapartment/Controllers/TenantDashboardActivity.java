@@ -1,17 +1,21 @@
 package com.sepgroup4.connectedapartment.Controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.sepgroup4.connectedapartment.R;
 
 public class TenantDashboardActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private LinearLayout mProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,9 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_tenant_dashboard_toolbar);
         setSupportActionBar(toolbar);
+
+        mProfile = (LinearLayout) findViewById(R.id.activity_tenant_dashboard_my_profile_linearlayout);
+        mProfile.setOnClickListener(this);
 
     }
 
@@ -54,7 +61,14 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.activity_tenant_dashboard_my_profile_linearlayout:
+                myProfile();
+
 
         }
+    }
+
+    private void myProfile() {
+        Intent intent= new Intent(TenantDashboardActivity.this, MyProfileActivity.class);
     }
 }

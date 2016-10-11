@@ -28,7 +28,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hey_there"
-                android:textSize="@dimen/tenant_dashboard_text_size" />
+                android:textSize="@dimen/tenant_dashboard_text_size"
+                android:paddingTop="15dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,7 +52,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1111111"
-                    android:textSize="@dimen/tenant_ID" />
+                    android:textSize="@dimen/tenant_ID"
+                    android:id="@+id/activity_tenant_dashboard_tenant_id_textview"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
