@@ -1,16 +1,17 @@
 package com.sepgroup4.connectedapartment.Controllers;
 
-import android.content.Intent;
+import android.accounts.NetworkErrorException;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
+import com.sepgroup4.connectedapartment.Model.TenantDetailRequest;
 import com.sepgroup4.connectedapartment.R;
 import com.sepgroup4.connectedapartment.Rest.Handlers.RestResponseHandler;
+import com.sepgroup4.connectedapartment.Rest.RestClientManager;
 import com.sepgroup4.connectedapartment.Utilities;
 
 /**
@@ -24,10 +25,7 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     private EditText mContact;
     private Button mUpdateProfile;
     private Button mChangePassword;
-    private String firstName;
-    private String lastName;
-    private String contactNumber;
-    private String doB;
+    private TenantDetailRequest mTenantDetailRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +47,11 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.update_profile_button: {
                 getInput();
-                // Kim an to do the update profile function in person controller
+                try {
+                    RestClientManager.getInstance(this).getPersonController().updateTenantInformation(mTenantDetailRequest, this);
+                } catch (NetworkErrorException e) {
+                    e.printStackTrace();
+                }
             }
             case R.id.change_password_button:{
                 startActivity(MyActivityManager.intentToChangePaswordActivity(this));
@@ -59,15 +61,18 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void getInput() {
-        firstName = mFirstName.getText().toString();
-        lastName = mLastName.getText().toString();
-        doB = mDoB.getText().toString();
-        contactNumber = mContact.getText().toString();
+        String firstName = mFirstName.getText().toString();
+        String lastName = mLastName.getText().toString();
+        String dob = mDoB.getText().toString();
+        String contactNumber = mContact.getText().toString();
+        mTenantDetailRequest = new TenantDetailRequest(firstName, lastName, dob, contactNumber);
     }
 
     @Override
     public void onResponseSuccess(RequestResponse requestResponse) {
-        //kim an do the update profile function
+        if(requestResponse != null){
+            Utilities.displayToast(this ,"Your details have been updated successfully");
+        }
     }
 
     @Override
