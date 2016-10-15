@@ -20,9 +20,8 @@
 
         <EditText
             android:id="@+id/activity_my_profile_tenant_first_name_edittext"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First Name"
             android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
 
@@ -33,10 +32,9 @@
 
         <EditText
             android:id="@+id/activity_my_profile_tenant_last_name_edittext"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Last Name"/>
+            android:inputType="textPersonName"/>
 
     </android.support.design.widget.TextInputLayout>
 

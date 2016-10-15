@@ -40,6 +40,7 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         mChangePassword = (Button)findViewById(R.id.change_password_button);
 
         mUpdateProfile.setOnClickListener(this);
+        mChangePassword.setOnClickListener(this);
     }
 
     @Override
@@ -52,9 +53,11 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
                 } catch (NetworkErrorException e) {
                     e.printStackTrace();
                 }
+                break;
             }
             case R.id.change_password_button:{
                 startActivity(MyActivityManager.intentToChangePaswordActivity(this));
+                break;
             }
         }
 
