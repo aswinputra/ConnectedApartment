@@ -3,6 +3,10 @@ package com.sepgroup4.connectedapartment;
 import android.content.Context;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 /**
@@ -10,6 +14,10 @@ import java.util.Locale;
  */
 
 public class Utilities {
+
+    private final static DateFormat DOBFormatCheck = new SimpleDateFormat("yyyy/MM/dd");
+
+
     public static void displayToast(Context context, String message){
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
@@ -19,5 +27,15 @@ public class Utilities {
         String monthStr = String.format(Locale.UK, "%02d", month);
         String dayStr = String.format(Locale.UK, "%02d", day);
         return yearStr + "-" + monthStr + "-" + dayStr;
+    }
+
+    public static Calendar getCalendarByString(String date){
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(DOBFormatCheck.parse(date));
+        } catch (ParseException e) {
+            return null;
+        }
+        return calendar;
     }
 }
