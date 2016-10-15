@@ -16,6 +16,7 @@ import com.sepgroup4.connectedapartment.Model.RegisterRequest;
 import com.sepgroup4.connectedapartment.Model.RegisterResponse;
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
 import com.sepgroup4.connectedapartment.Model.ResetPasswordResponse;
+import com.sepgroup4.connectedapartment.Model.SingleFacilityResponse;
 import com.sepgroup4.connectedapartment.Model.TenantDetailRequest;
 import com.sepgroup4.connectedapartment.Model.TenantInfoResponse;
 import com.sepgroup4.connectedapartment.Rest.Handlers.AuthenticationHandler;
@@ -27,11 +28,48 @@ import java.io.IOException;
 
 import retrofit2.Call;
 
-/**
- * Created by kiman on 29/09/2016.
- */
+
 public class PersonController {
     private RestClient mRestClient;
+
+    public void registerTenant(RegisterRequest registerRequest, RestResponseHandler handler) {
+        new RegisterTenant(handler).execute(registerRequest);
+    }
+
+    private class RegisterTenant extends AsyncTask<RegisterRequest, Void, RegisterResponse> {
+
+        private RestResponseHandler handler;
+
+        public RegisterTenant(RestResponseHandler handler) {
+            this.handler = handler;
+        }
+
+        @Override
+        protected RegisterResponse doInBackground(RegisterRequest... registerRequests) {
+            Call<RegisterResponse> call = mRestClient.getConnectedApartmentRestApi().registerTenant(registerRequests[0]);
+            RegisterResponse registerResponse = null;
+            try {
+                registerResponse = call.execute().body();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return registerResponse;
+        }
+
+        @Override
+        protected void onPostExecute(RegisterResponse registerResponse) {
+            if (registerResponse == null) {
+                handler.onResponseFailure("This email has already been taken");
+            } else {
+                if (registerResponse.getSuccess()) {
+                    handler.onResponseSuccess(registerResponse);
+                } else {
+                    handler.onResponseFailure("Could not complete registration");
+                }
+            }
+            super.onPostExecute(registerResponse);
+        }
+    }
 
     public PersonController(RestClient mRestClient) {
         this.mRestClient = mRestClient;
@@ -51,10 +89,6 @@ public class PersonController {
 
     public void changePassword(PasswordChange passwordChange, RestResponseHandler handler) {
         new ChangePasswordTask(handler).execute(passwordChange);
-    }
-
-    public void registerTenant(RegisterRequest registerRequest, RestResponseHandler handler) {
-        new RegisterTenant(handler).execute(registerRequest);
     }
 
     public void getTenantInformation(RestResponseHandler handler){
@@ -79,6 +113,10 @@ public class PersonController {
 
     public void getFacilities(RestResponseHandler handler){
         new GetFacilitiesTask(handler).execute();
+    }
+
+    public void getFacility(int facilityId, RestResponseHandler handler){
+        new GetFacilityTask(handler).execute(facilityId);
     }
 
     private class AuthenticateTask extends AsyncTask<LoginRequest, Void, LoginResponse> {
@@ -189,40 +227,7 @@ public class PersonController {
         }
     }
 
-    private class RegisterTenant extends AsyncTask<RegisterRequest, Void, RegisterResponse> {
 
-        private RestResponseHandler handler;
-
-        public RegisterTenant(RestResponseHandler handler) {
-            this.handler = handler;
-        }
-
-        @Override
-        protected RegisterResponse doInBackground(RegisterRequest... registerRequests) {
-            Call<RegisterResponse> call = mRestClient.getConnectedApartmentRestApi().registerTenant(registerRequests[0]);
-            RegisterResponse registerResponse = null;
-            try {
-                registerResponse = call.execute().body();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return registerResponse;
-        }
-
-        @Override
-        protected void onPostExecute(RegisterResponse registerResponse) {
-            if (registerResponse == null) {
-                handler.onResponseFailure("This email has already been taken");
-            } else {
-                if (registerResponse.getSuccess()) {
-                    handler.onResponseSuccess(registerResponse);
-                } else {
-                    handler.onResponseFailure("Could not complete registration");
-                }
-            }
-            super.onPostExecute(registerResponse);
-        }
-    }
 
     private class ChangePasswordTask extends AsyncTask<PasswordChange, Void, RequestResponse> {
 
@@ -464,6 +469,41 @@ public class PersonController {
                     handler.onResponseSuccess(requestResponse);
                 } else {
                     handler.onResponseFailure("Could not get facilities, please try again later");
+                }
+            }
+            super.onPostExecute(requestResponse);
+        }
+    }
+
+    private class GetFacilityTask extends AsyncTask<Integer, Void, RequestResponse>{
+
+        private RestResponseHandler handler;
+
+        public GetFacilityTask(RestResponseHandler handler) {
+            this.handler = handler;
+        }
+
+        @Override
+        protected SingleFacilityResponse doInBackground(Integer... params) {
+            Call<SingleFacilityResponse> call = mRestClient.getConnectedApartmentRestApi().getTenantFacility(params[0]);
+            SingleFacilityResponse response = null;
+            try {
+                response = call.execute().body();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(RequestResponse requestResponse) {
+            if (requestResponse == null) {
+                handler.onResponseFailure("Something's wrong, please try again later");
+            } else {
+                if (requestResponse.getSuccess()) {
+                    handler.onResponseSuccess(requestResponse);
+                } else {
+                    handler.onResponseFailure("Could not get facility, please try again later");
                 }
             }
             super.onPostExecute(requestResponse);

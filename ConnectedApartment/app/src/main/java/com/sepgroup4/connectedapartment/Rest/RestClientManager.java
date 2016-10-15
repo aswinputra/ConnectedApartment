@@ -9,9 +9,6 @@ import com.sepgroup4.connectedapartment.R;
 import com.sepgroup4.connectedapartment.Rest.Controller.BuildingManagerController;
 import com.sepgroup4.connectedapartment.Rest.Controller.PersonController;
 
-/**
- * Created by kiman on 29/09/2016.
- */
 public class RestClientManager {
     private static RestClientManager ourInstance = null;
 

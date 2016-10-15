@@ -10,6 +10,7 @@ import com.sepgroup4.connectedapartment.Model.RegisterRequest;
 import com.sepgroup4.connectedapartment.Model.RegisterResponse;
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
 import com.sepgroup4.connectedapartment.Model.ResetPasswordResponse;
+import com.sepgroup4.connectedapartment.Model.SingleFacilityResponse;
 import com.sepgroup4.connectedapartment.Model.TenantInfoResponse;
 import com.sepgroup4.connectedapartment.Model.TenantDetailRequest;
 import com.sepgroup4.connectedapartment.Model.UserInfoResponse;
@@ -26,6 +27,9 @@ import retrofit2.http.Query;
 
 public interface ConnectedApartmentRestApi {
 
+    @POST("api/Account/RegisterTenant")
+    Call<RegisterResponse> registerTenant(@Body RegisterRequest registerRequest);
+
     @FormUrlEncoded
     @POST("Token")
     Call<LoginResponse> authenticate(@Field("grant_type") String grantType, @Field("username") String username,
@@ -36,9 +40,6 @@ public interface ConnectedApartmentRestApi {
 
     @POST("api/Account/ResetPassword")
     Call<ResetPasswordResponse> resetPassword(@Query("email") String email);
-
-    @POST("api/Account/RegisterTenant")
-    Call<RegisterResponse> registerTenant(@Body RegisterRequest registerRequest);
 
     @GET("api/BuildingManager/FetchApartments")
     Call<ApartmentResponse> getApartments();
@@ -77,6 +78,12 @@ public interface ConnectedApartmentRestApi {
 
     @GET("api/BuildingManager/FetchFacilities")
     Call<FacilityResponse> getBMFacilities();
+
+    @GET("api/BuildingManager/FetchFacility")
+    Call<SingleFacilityResponse> getBMFacility(@Query("facilityId") Integer facilityId);
+
+    @GET("api/Tenant/FetchFacility")
+    Call<SingleFacilityResponse> getTenantFacility(@Query("facilityId") Integer facilityId);
 }
 
 

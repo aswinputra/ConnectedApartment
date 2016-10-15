@@ -31,6 +31,33 @@ import java.util.Map;
 
 public class RegisterFormActivity extends AppCompatActivity implements RestResponseHandler, View.OnClickListener {
 
+    private void register() {
+        String tEmail = mTenantEmail.getText().toString();
+
+        if (checkEmail(tEmail)) {
+            String tFirstName = mTenantFirstName.getText().toString();
+            String tLastName = mTenantLastName.getText().toString();
+            String tDoB = mTenantDoB.getText().toString();
+            String tContact = mTenantContactNumber.getText().toString();
+
+            if (checkInputs(tFirstName, tLastName, tDoB, tContact)) {
+                String apartmentName = mSpinner.getSelectedItem().toString();
+                int apartmentId = getApartmentId(apartmentName);
+                RegisterRequest registerRequest = new RegisterRequest(tEmail, tFirstName, tLastName, tDoB, tContact, apartmentId);
+                try {
+                    mMyProgressDialog.show("Registering...");
+                    RestClientManager.getInstance(RegisterFormActivity.this).getPersonController().registerTenant(registerRequest, this);
+                } catch (NetworkErrorException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                Utilities.displayToast(this, "Some fields are missing");
+            }
+        } else {
+            mEmailTIL.setError("Invalid email");
+        }
+    }
+
     private EditText mTenantFirstName;
     private EditText mTenantLastName;
     private EditText mTenantContactNumber;
@@ -89,32 +116,6 @@ public class RegisterFormActivity extends AppCompatActivity implements RestRespo
         return super.onOptionsItemSelected(item);
     }
 
-    private void register() {
-        String tEmail = mTenantEmail.getText().toString();
-
-        if (checkEmail(tEmail)) {
-            String tFirstName = mTenantFirstName.getText().toString();
-            String tLastName = mTenantLastName.getText().toString();
-            String tDoB = mTenantDoB.getText().toString();
-            String tContact = mTenantContactNumber.getText().toString();
-
-            if (checkInputs(tFirstName, tLastName, tDoB, tContact)) {
-                String apartmentName = mSpinner.getSelectedItem().toString();
-                int apartmentId = getApartmentId(apartmentName);
-                RegisterRequest registerRequest = new RegisterRequest(tEmail, tFirstName, tLastName, tDoB, tContact, apartmentId);
-                try {
-                    mMyProgressDialog.show("Registering...");
-                    RestClientManager.getInstance(RegisterFormActivity.this).getPersonController().registerTenant(registerRequest, this);
-                } catch (NetworkErrorException e) {
-                    e.printStackTrace();
-                }
-            }else{
-                Utilities.displayToast(this, "Some fields are missing");
-            }
-        } else {
-            mEmailTIL.setError("Invalid email");
-        }
-    }
 
     private boolean checkEmail(String email) {
         return email.contains("@");
