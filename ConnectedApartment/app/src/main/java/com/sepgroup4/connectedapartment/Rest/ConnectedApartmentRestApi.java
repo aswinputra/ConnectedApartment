@@ -85,7 +85,6 @@ public interface ConnectedApartmentRestApi {
     @GET("api/Tenant/FetchFacility")
     Call<SingleFacilityResponse> getTenantFacility(@Query("facilityId") Integer facilityId);
 
-    //aswin
 }
 
 

@@ -260,6 +260,4 @@ public class BuildingManagerController {
             super.onPostExecute(requestResponse);
         }
     }
-
-    //aswin
 }
