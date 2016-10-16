@@ -172,8 +172,7 @@ public class RegisterFormActivity extends AppCompatActivity implements RestRespo
 
     private void displayRegisterSuccess() {
         Utilities.displayToast(this, "You have been registered successfully");
-        Intent intent = new Intent(RegisterFormActivity.this, BMDashboardActivity.class);
-        startActivity(intent);
+        startActivity(MyActivityManager.intentToBMDashBoard(this));
     }
 
     private void getApartments() {

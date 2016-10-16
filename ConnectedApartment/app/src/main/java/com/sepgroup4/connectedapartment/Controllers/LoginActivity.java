@@ -119,11 +119,9 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
         String role = userInfoResponse.getUserInfo().getRole();
 
         if (role.equals("BuildingManager")) {
-            Intent intent = new Intent(LoginActivity.this, BMDashboardActivity.class);
-            startActivity(intent);
+            startActivity(MyActivityManager.intentToBMDashBoard(this));
         } else {
-            Intent intent = new Intent(LoginActivity.this, TenantDashboardActivity.class);
-            startActivity(intent);
+            startActivity(MyActivityManager.intentToTenantDashBoard(this));
         }
     }
 
