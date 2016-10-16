@@ -60,18 +60,15 @@ public class BMDashboardActivity extends AppCompatActivity implements View.OnCli
 
 
     private void createTenantAccount(){
-        Intent intent = new Intent(this, RegisterFormActivity.class);
-        startActivity(intent);
+        startActivity(MyActivityManager.intentToCreateTenantAccount(this));
     }
 
     private void makeBooking(){
-        Intent intent = new Intent(this, BookFacilityActivity.class);
-        startActivity(intent);
+        startActivity( MyActivityManager.intentToBookFacility(this));
     }
 
     private void viewBooking(){
-        Intent intent = new Intent(this, ViewBookingActivity.class);
-        startActivity(intent);
+        startActivity(MyActivityManager.intentToViewBooking(this));
     }
 
     @Override

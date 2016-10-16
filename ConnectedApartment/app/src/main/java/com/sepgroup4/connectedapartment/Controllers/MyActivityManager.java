@@ -28,4 +28,19 @@ public class MyActivityManager {
     public static Intent intentToTenantDashBoard(Context context){
         return new Intent(context, TenantDashboardActivity.class);
     }
+
+    public static Intent intentToMyProfile(Context context){
+        return new Intent(context, MyProfileActivity.class);
+    }
+    public static Intent intentToBookFacility(Context context){
+        return new Intent(context, BookFacilityActivity.class);
+    }
+
+    public static Intent intentToViewBooking(Context context){
+        return new Intent(context, ViewBookingActivity.class);
+    }
+
+    public static Intent intentToCreateTenantAccount(Context context){
+        return new Intent(context, RegisterFormActivity.class);
+    }
 }

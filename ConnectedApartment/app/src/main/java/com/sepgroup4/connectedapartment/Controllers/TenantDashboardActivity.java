@@ -63,8 +63,7 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
 
 
     private void bookFacility(){
-        Intent intent = new Intent(TenantDashboardActivity.this, BookFacilityActivity.class);
-        startActivity(intent);
+        startActivity(MyActivityManager.intentToBookFacility(this));
     }
 
     @Override
@@ -83,12 +82,10 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
     }
 
     private void viewBooking() {
-        Intent intent = new Intent(TenantDashboardActivity.this, ViewBookingActivity.class);
-        startActivity(intent);
+        startActivity(MyActivityManager.intentToViewBooking(this));
     }
 
     private void myProfile() {
-        Intent intent= new Intent(TenantDashboardActivity.this, MyProfileActivity.class);
-        startActivity(intent);
+        startActivity(MyActivityManager.intentToMyProfile(this));
     }
 }
