@@ -17,6 +17,7 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
 
     private LinearLayout mProfile;
     private LinearLayout mBookActivity;
+    private LinearLayout mViewBooking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +29,10 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
 
         mProfile = (LinearLayout) findViewById(R.id.activity_tenant_dashboard_my_profile_linearlayout);
         mBookActivity = (LinearLayout) findViewById(R.id.activity_tenant_dashboard_book_facility_linearlayout);
+        mViewBooking = (LinearLayout) findViewById(R.id.activity_tenant_dashboard_view_booking_linearlayout);
         mProfile.setOnClickListener(this);
         mBookActivity.setOnClickListener(this);
+        mViewBooking.setOnClickListener(this);
     }
 
     @Override
@@ -70,8 +73,15 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
             case R.id.activity_tenant_dashboard_book_facility_linearlayout:
                 bookFacility();
                 break;
-
+            case R.id.activity_tenant_dashboard_view_booking_linearlayout:
+                viewBooking();
+                break;
         }
+    }
+
+    private void viewBooking() {
+        Intent intent = new Intent(TenantDashboardActivity.this, ViewBookingActivity.class);
+        startActivity(intent);
     }
 
     private void myProfile() {

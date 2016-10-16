@@ -20,6 +20,7 @@ import com.sepgroup4.connectedapartment.Rest.RestClientManager;
 import com.sepgroup4.connectedapartment.Utilities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kiman on 16/10/2016.
@@ -27,11 +28,11 @@ import java.util.ArrayList;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingViewHolder> {
 
-    private ArrayList<Booking> mBookingArrayList;
+    private List<Booking> mBookingArrayList;
     private FacilityList mFacilityList;
     private Context mContext;
 
-    public BookingAdapter(ArrayList<Booking> mBookingArrayList, FacilityList facilityList, Context mContext) {
+    public BookingAdapter(List<Booking> mBookingArrayList, FacilityList facilityList, Context mContext) {
         this.mBookingArrayList = mBookingArrayList;
         this.mContext = mContext;
         this.mFacilityList = facilityList;
@@ -39,8 +40,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
 
     @Override
     public BookingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = null;
-//        View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_facility_booking, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_facility_booking, parent, false);
         return new BookingViewHolder(view);
     }
 
@@ -65,9 +65,9 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         public BookingViewHolder(View itemView) {
             super(itemView);
 
-//            mFacilityNameTv = (TextView) itemView.findViewById(R.id.adapter_facility_booking_name);
-//            mBookedTimeTv = (TextView) itemView.findViewById(R.id.adapter_facility_booking_time);
-//            mCancelBtn = (Button) itemView.findViewById(R.id.adapter_facility_cancel_button);
+            mFacilityNameTv = (TextView) itemView.findViewById(R.id.adapter_facility_booking_name);
+            mBookedTimeTv = (TextView) itemView.findViewById(R.id.adapter_facility_booking_time);
+            mCancelBtn = (Button) itemView.findViewById(R.id.adapter_facility_booking_cancel_button);
             mCancelBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

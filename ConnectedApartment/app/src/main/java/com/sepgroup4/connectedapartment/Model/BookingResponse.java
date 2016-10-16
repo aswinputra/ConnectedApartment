@@ -7,11 +7,11 @@ import java.util.List;
  * Created by kiman on 14/10/2016.
  */
 
-public class MakeBookingResponse extends RequestResponse{
+public class BookingResponse extends RequestResponse{
 
     private List<Booking> Result = new ArrayList<>();
 
-    public MakeBookingResponse(Boolean isSuccess, String message, List<Booking> result) {
+    public BookingResponse(Boolean isSuccess, String message, List<Booking> result) {
         super(isSuccess, message);
         Result = result;
     }
