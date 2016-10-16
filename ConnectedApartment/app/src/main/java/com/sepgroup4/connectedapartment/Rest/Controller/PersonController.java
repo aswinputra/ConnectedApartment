@@ -15,7 +15,6 @@ import com.sepgroup4.connectedapartment.Model.RegisterRequest;
 import com.sepgroup4.connectedapartment.Model.RegisterResponse;
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
 import com.sepgroup4.connectedapartment.Model.ResetPasswordResponse;
-import com.sepgroup4.connectedapartment.Model.SingleFacilityResponse;
 import com.sepgroup4.connectedapartment.Model.TenantDetailRequest;
 import com.sepgroup4.connectedapartment.Model.TenantInfoResponse;
 import com.sepgroup4.connectedapartment.Rest.Handlers.AuthenticationHandler;
@@ -112,10 +111,6 @@ public class PersonController {
 
     public void getFacilities(RestResponseHandler handler){
         new GetFacilitiesTask(handler).execute();
-    }
-
-    public void getFacility(int facilityId, RestResponseHandler handler){
-        new GetFacilityTask(handler).execute(facilityId);
     }
 
     private class AuthenticateTask extends AsyncTask<LoginRequest, Void, LoginResponse> {
@@ -474,38 +469,4 @@ public class PersonController {
         }
     }
 
-    private class GetFacilityTask extends AsyncTask<Integer, Void, RequestResponse>{
-
-        private RestResponseHandler handler;
-
-        public GetFacilityTask(RestResponseHandler handler) {
-            this.handler = handler;
-        }
-
-        @Override
-        protected SingleFacilityResponse doInBackground(Integer... params) {
-            Call<SingleFacilityResponse> call = mRestClient.getConnectedApartmentRestApi().getTenantFacility(params[0]);
-            SingleFacilityResponse response = null;
-            try {
-                response = call.execute().body();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return response;
-        }
-
-        @Override
-        protected void onPostExecute(RequestResponse requestResponse) {
-            if (requestResponse == null) {
-                handler.onResponseFailure("Something's wrong, please try again later");
-            } else {
-                if (requestResponse.getSuccess()) {
-                    handler.onResponseSuccess(requestResponse);
-                } else {
-                    handler.onResponseFailure("Could not get facility, please try again later");
-                }
-            }
-            super.onPostExecute(requestResponse);
-        }
-    }
 }

@@ -26,13 +26,17 @@ public class BMDashboardActivity extends AppCompatActivity implements View.OnCli
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_bm_dashboard_toolbar);
         setSupportActionBar(toolbar);
 
-        mMakeBooking = (LinearLayout) findViewById(R.id.activity_bm_dashboard_make_booking_linearlayout);
-        mViewBooking = (LinearLayout) findViewById(R.id.activity_bm_dashboard_view_booking_linearlayout);
-        mCreateAccountView = (LinearLayout) findViewById(R.id.activity_bm_dashboard_create_account_linearlayout);
+        getLayoutId();
         mCreateAccountView.setOnClickListener(this);
         mViewBooking.setOnClickListener(this);
         mMakeBooking.setOnClickListener(this);
         LoginSession.bm = true;
+    }
+
+    private void getLayoutId() {
+        mMakeBooking = (LinearLayout) findViewById(R.id.activity_bm_dashboard_make_booking_linearlayout);
+        mViewBooking = (LinearLayout) findViewById(R.id.activity_bm_dashboard_view_booking_linearlayout);
+        mCreateAccountView = (LinearLayout) findViewById(R.id.activity_bm_dashboard_create_account_linearlayout);
     }
 
     @Override

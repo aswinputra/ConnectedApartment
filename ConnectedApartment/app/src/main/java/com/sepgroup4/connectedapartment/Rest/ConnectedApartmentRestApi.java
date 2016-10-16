@@ -10,7 +10,6 @@ import com.sepgroup4.connectedapartment.Model.RegisterRequest;
 import com.sepgroup4.connectedapartment.Model.RegisterResponse;
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
 import com.sepgroup4.connectedapartment.Model.ResetPasswordResponse;
-import com.sepgroup4.connectedapartment.Model.SingleFacilityResponse;
 import com.sepgroup4.connectedapartment.Model.TenantInfoResponse;
 import com.sepgroup4.connectedapartment.Model.TenantDetailRequest;
 import com.sepgroup4.connectedapartment.Model.UserInfoResponse;
@@ -78,12 +77,6 @@ public interface ConnectedApartmentRestApi {
 
     @GET("api/BuildingManager/FetchFacilities")
     Call<FacilityResponse> getBMFacilities();
-
-    @GET("api/BuildingManager/FetchFacility")
-    Call<SingleFacilityResponse> getBMFacility(@Query("facilityId") Integer facilityId);
-
-    @GET("api/Tenant/FetchFacility")
-    Call<SingleFacilityResponse> getTenantFacility(@Query("facilityId") Integer facilityId);
 
 }
 

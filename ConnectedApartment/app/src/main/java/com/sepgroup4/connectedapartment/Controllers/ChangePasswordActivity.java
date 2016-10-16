@@ -31,6 +31,10 @@ public class ChangePasswordActivity extends AppCompatActivity implements RestRes
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getLayoutId();
+    }
+
+    private void getLayoutId() {
         mNewPasswordET = (EditText) findViewById(R.id.activity_reset_password_new_password_edittext);
         mConfirmPasswordET = (EditText) findViewById(R.id.activity_reset_password_confirm_password_edittext);
         mOldPasswordET = (EditText) findViewById(R.id.activity_reset_password_old_password_edittext);

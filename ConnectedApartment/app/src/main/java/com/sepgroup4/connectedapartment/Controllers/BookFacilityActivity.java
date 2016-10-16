@@ -51,17 +51,21 @@ public class BookFacilityActivity extends AppCompatActivity implements RestRespo
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        getLayoutId();
         mFacilityMap = new HashMap<>();
-        facilitySpinner = (Spinner)findViewById(R.id.choose_facility_spinner);
-        facilityDay = (EditText)findViewById(R.id.activity_book_facility_day_edittext);
         facilityDay.setInputType(0x00000000);
-        facilityBookingbtn = (Button)findViewById(R.id.book_facility_button);
         setUpCalendarPrompt();
 
 
         facilityBookingbtn.setOnClickListener(this);
         facilityDay.setOnClickListener(this);
         getFacilities();
+    }
+
+    private void getLayoutId() {
+        facilitySpinner = (Spinner)findViewById(R.id.choose_facility_spinner);
+        facilityDay = (EditText)findViewById(R.id.activity_book_facility_day_edittext);
+        facilityBookingbtn = (Button)findViewById(R.id.book_facility_button);
     }
 
     @Override

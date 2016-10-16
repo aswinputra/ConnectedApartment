@@ -46,13 +46,10 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mUsernameEt = (EditText) findViewById(R.id.activity_login_username);
-        mPasswordEt = (EditText) findViewById(R.id.activity_login_password);
-        mProgressBar = (ProgressBar) findViewById(R.id.activity_login_progress_bar);
-        mForgotPasswordTv = (TextView) findViewById(R.id.activity_login_forgot_password);
+        getLayoutId();
 
         mUsernameEt.setText("aswinptr95@gmail.com");
-        mPasswordEt.setText("Aa123!@#");
+        mPasswordEt.setText("aA123!@#");
         Button signInButton = (Button) findViewById(R.id.activity_login_email_sign_in_button);
         signInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -70,6 +67,13 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
                 }
             }
         });
+    }
+
+    private void getLayoutId() {
+        mUsernameEt = (EditText) findViewById(R.id.activity_login_username);
+        mPasswordEt = (EditText) findViewById(R.id.activity_login_password);
+        mProgressBar = (ProgressBar) findViewById(R.id.activity_login_progress_bar);
+        mForgotPasswordTv = (TextView) findViewById(R.id.activity_login_forgot_password);
     }
 
     private void login(String name, String password) {
