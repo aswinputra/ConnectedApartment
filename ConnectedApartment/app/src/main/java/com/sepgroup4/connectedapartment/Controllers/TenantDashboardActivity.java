@@ -16,6 +16,7 @@ import com.sepgroup4.connectedapartment.R;
 public class TenantDashboardActivity extends AppCompatActivity implements View.OnClickListener{
 
     private LinearLayout mProfile;
+    private LinearLayout mBookActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,9 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
         setSupportActionBar(toolbar);
 
         mProfile = (LinearLayout) findViewById(R.id.activity_tenant_dashboard_my_profile_linearlayout);
+        mBookActivity = (LinearLayout) findViewById(R.id.activity_tenant_dashboard_book_facility_linearlayout);
         mProfile.setOnClickListener(this);
-
+        mBookActivity.setOnClickListener(this);
     }
 
     @Override
@@ -55,7 +57,8 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
 
 
     private void bookFacility(){
-
+        Intent intent = new Intent(TenantDashboardActivity.this, BookFacilityActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -63,12 +66,16 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
         switch (view.getId()){
             case R.id.activity_tenant_dashboard_my_profile_linearlayout:
                 myProfile();
-
+                break;
+            case R.id.activity_tenant_dashboard_book_facility_linearlayout:
+                bookFacility();
+                break;
 
         }
     }
 
     private void myProfile() {
         Intent intent= new Intent(TenantDashboardActivity.this, MyProfileActivity.class);
+        startActivity(intent);
     }
 }

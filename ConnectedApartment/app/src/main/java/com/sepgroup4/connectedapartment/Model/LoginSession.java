@@ -5,4 +5,5 @@ package com.sepgroup4.connectedapartment.Model;
  */
 public class LoginSession {
     public static String userToken = Constants.NULL;
+    public static boolean bm = false;
 }

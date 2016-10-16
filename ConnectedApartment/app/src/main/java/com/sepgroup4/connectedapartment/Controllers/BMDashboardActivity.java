@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.sepgroup4.connectedapartment.Model.LoginSession;
 import com.sepgroup4.connectedapartment.R;
 
 public class BMDashboardActivity extends AppCompatActivity implements View.OnClickListener{
@@ -25,6 +26,7 @@ public class BMDashboardActivity extends AppCompatActivity implements View.OnCli
 
         mCreateAccountView = (LinearLayout) findViewById(R.id.activity_bm_dashboard_create_account_linearlayout);
         mCreateAccountView.setOnClickListener(this);
+        LoginSession.bm = true;
     }
 
     @Override
@@ -56,11 +58,20 @@ public class BMDashboardActivity extends AppCompatActivity implements View.OnCli
         startActivity(intent);
     }
 
+    private void makeBooking(){
+        Intent intent = new Intent(this, BookFacilityActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.activity_bm_dashboard_create_account_linearlayout: {
                 createTenantAccount();
+                break;
+            }
+            case R.id.activity_bm_dashboard_make_booking_linearlayout: {
+                makeBooking();
                 break;
             }
         }

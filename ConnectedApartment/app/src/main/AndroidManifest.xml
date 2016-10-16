@@ -52,6 +52,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sepgroup4.connectedapartment.Controllers.LoginActivity" />
         </activity>
+        <activity
+            android:name=".Controllers.MyProfileActivity"
+            android:label="@string/title_activity_my_profile"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Controllers.BookFacilityActivity"
+            android:label="@string/title_activity_booking_facility"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sepgroup4.connectedapartment.Controllers.TenantDashboardActivity" />
+        </activity>
     </application>
 
 </manifest>

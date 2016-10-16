@@ -60,4 +60,8 @@ public class Facility {
     public void setBuildingId(Integer buildingId) {
         this.buildingId = buildingId;
     }
+
+    public String getFacilityName() {
+        return level + "." + number;
+    }
 }

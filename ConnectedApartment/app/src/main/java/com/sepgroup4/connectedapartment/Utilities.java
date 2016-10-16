@@ -15,7 +15,7 @@ import java.util.Locale;
 
 public class Utilities {
 
-    private final static DateFormat DOBFormatCheck = new SimpleDateFormat("yyyy/MM/dd");
+    private final static DateFormat DOBFormatCheck = new SimpleDateFormat("yyyy-MM-dd");
 
 
     public static void displayToast(Context context, String message){

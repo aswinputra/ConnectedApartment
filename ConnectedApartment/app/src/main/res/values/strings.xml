@@ -18,6 +18,7 @@
     <string name="title_activity_tenant_dashboard">TenantDashboardActivity</string>
     <string name="title_activity_bmdashboard">BMDashboardActivity</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_booking_facility">BookingFacilityActivity</string>
     <string name="forgot_password"><u>Forgot password?</u></string>
 
     <!-- Strings related to login -->
@@ -54,6 +55,7 @@
     <string name="date_hint">dd/mm/yyyy</string>
     <string name="title_activity_register_form">RegisterFormActivity</string>
     <string name="title_activity_create_account_result">CreateAccountResult</string>
+    <string name="title_activity_my_profile">MyProfile</string>
 
     <string name="tenant_id_colon">"Tenant ID: "</string>
     <string name="password_colon">"Password: "</string>
@@ -85,6 +87,7 @@
 
     <string name="new_password">New password</string>
     <string name="confirm_password">Confirm password</string>
+    <string name="old_password">Old password</string>
 
     <string name="yes">Yes</string>
     <string name="no">No</string>

@@ -51,8 +51,8 @@ public class LoginActivity extends AppCompatActivity implements AuthenticationHa
         mProgressBar = (ProgressBar) findViewById(R.id.activity_login_progress_bar);
         mForgotPasswordTv = (TextView) findViewById(R.id.activity_login_forgot_password);
 
-        mUsernameEt.setText("bill.mourtzis@gmail.com");
-        mPasswordEt.setText("aA123!@#");
+        mUsernameEt.setText("aswinptr95@gmail.com");
+        mPasswordEt.setText("Aa123!@#");
         Button signInButton = (Button) findViewById(R.id.activity_login_email_sign_in_button);
         signInButton.setOnClickListener(new OnClickListener() {
             @Override

@@ -64,4 +64,6 @@ public class Apartment {
     public String getApartmentName() {
         return level + "." + number;
     }
+
+
 }
