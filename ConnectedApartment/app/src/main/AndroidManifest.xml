@@ -65,6 +65,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sepgroup4.connectedapartment.Controllers.TenantDashboardActivity" />
         </activity>
+        <activity android:name=".Controllers.ViewBookingActivity"
+            android:label="@string/view_booking"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
