@@ -35,6 +35,7 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
         mBookActivity.setOnClickListener(this);
         mViewBooking.setOnClickListener(this);
         LoginSession.bm=false;
+        //change it to tenant
     }
 
     @Override
