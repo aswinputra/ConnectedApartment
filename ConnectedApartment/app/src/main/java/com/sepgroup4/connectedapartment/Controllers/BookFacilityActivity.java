@@ -14,8 +14,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.sepgroup4.connectedapartment.Model.ApartmentResponse;
-import com.sepgroup4.connectedapartment.Model.BookingResponse;
 import com.sepgroup4.connectedapartment.Model.Facility;
 import com.sepgroup4.connectedapartment.Model.FacilityResponse;
 import com.sepgroup4.connectedapartment.Model.LoginSession;
@@ -23,7 +21,6 @@ import com.sepgroup4.connectedapartment.Model.MakeBookingRequest;
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
 import com.sepgroup4.connectedapartment.R;
 import com.sepgroup4.connectedapartment.Rest.Handlers.RestResponseHandler;
-import com.sepgroup4.connectedapartment.Rest.RestClient;
 import com.sepgroup4.connectedapartment.Rest.RestClientManager;
 import com.sepgroup4.connectedapartment.Utilities;
 

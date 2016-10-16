@@ -1,10 +1,9 @@
 package com.sepgroup4.connectedapartment.Rest.Controller;
 
-import android.app.DownloadManager;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.sepgroup4.connectedapartment.Model.BookingResponse;
+import com.sepgroup4.connectedapartment.Model.MakeBookingResponse;
 import com.sepgroup4.connectedapartment.Model.Constants;
 import com.sepgroup4.connectedapartment.Model.FacilityResponse;
 import com.sepgroup4.connectedapartment.Model.MakeBookingRequest;
@@ -379,8 +378,8 @@ public class PersonController {
 
         @Override
         protected RequestResponse doInBackground(Void... params) {
-            Call<BookingResponse> call = mRestClient.getConnectedApartmentRestApi().getTenantBookings();
-            BookingResponse response = null;
+            Call<MakeBookingResponse> call = mRestClient.getConnectedApartmentRestApi().getTenantBookings();
+            MakeBookingResponse response = null;
             try {
                 response = call.execute().body();
             } catch (IOException e) {

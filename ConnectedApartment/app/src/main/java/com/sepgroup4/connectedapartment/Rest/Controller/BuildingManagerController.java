@@ -3,7 +3,7 @@ package com.sepgroup4.connectedapartment.Rest.Controller;
 import android.os.AsyncTask;
 
 import com.sepgroup4.connectedapartment.Model.ApartmentResponse;
-import com.sepgroup4.connectedapartment.Model.BookingResponse;
+import com.sepgroup4.connectedapartment.Model.MakeBookingResponse;
 import com.sepgroup4.connectedapartment.Model.FacilityResponse;
 import com.sepgroup4.connectedapartment.Model.MakeBookingRequest;
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
@@ -130,8 +130,8 @@ public class BuildingManagerController {
 
         @Override
         protected RequestResponse doInBackground(Void... params) {
-            Call<BookingResponse> call = mRestClient.getConnectedApartmentRestApi().getBMBookings();
-            BookingResponse response = null;
+            Call<MakeBookingResponse> call = mRestClient.getConnectedApartmentRestApi().getBMBookings();
+            MakeBookingResponse response = null;
             try {
                 response = call.execute().body();
             } catch (IOException e) {

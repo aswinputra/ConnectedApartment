@@ -1,7 +1,7 @@
 package com.sepgroup4.connectedapartment.Rest;
 
 import com.sepgroup4.connectedapartment.Model.ApartmentResponse;
-import com.sepgroup4.connectedapartment.Model.BookingResponse;
+import com.sepgroup4.connectedapartment.Model.MakeBookingResponse;
 import com.sepgroup4.connectedapartment.Model.FacilityResponse;
 import com.sepgroup4.connectedapartment.Model.MakeBookingRequest;
 import com.sepgroup4.connectedapartment.Model.PasswordChange;
@@ -60,10 +60,10 @@ public interface ConnectedApartmentRestApi {
     Call<RequestResponse> createTenantBooking(@Body MakeBookingRequest makeBookingRequest);
 
     @GET("api/Tenant/FetchPersonBookings")
-    Call<BookingResponse> getTenantBookings();
+    Call<MakeBookingResponse> getTenantBookings();
 
     @GET("api/BuildingManager/FetchPersonBookings")
-    Call<BookingResponse> getBMBookings();
+    Call<MakeBookingResponse> getBMBookings();
 
     @DELETE("api/Tenant/CancelBooking")
     Call<RequestResponse> cancelTenantBooking(@Query("FacilityId") String facilityId,
