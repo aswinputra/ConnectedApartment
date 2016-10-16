@@ -82,7 +82,7 @@ public class TenantInfo {
     }
 
     public String getDoB() {
-        return doB;
+        return doB.substring(0,10);
     }
 
     public void setDoB(String doB) {

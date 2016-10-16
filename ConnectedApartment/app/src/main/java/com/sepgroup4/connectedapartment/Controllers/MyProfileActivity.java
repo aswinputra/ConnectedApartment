@@ -15,12 +15,14 @@ import android.widget.EditText;
 import com.sepgroup4.connectedapartment.Model.LoginSession;
 import com.sepgroup4.connectedapartment.Model.RequestResponse;
 import com.sepgroup4.connectedapartment.Model.TenantDetailRequest;
+import com.sepgroup4.connectedapartment.Model.TenantInfoResponse;
 import com.sepgroup4.connectedapartment.R;
 import com.sepgroup4.connectedapartment.Rest.Handlers.RestResponseHandler;
 import com.sepgroup4.connectedapartment.Rest.RestClientManager;
 import com.sepgroup4.connectedapartment.Utilities;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by aswinhartono on 11/10/2016.
@@ -53,10 +55,19 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         mUpdateProfile = (Button)findViewById(R.id.update_profile_button);
         mChangePassword = (Button)findViewById(R.id.change_password_button);
         setUpCalendarPrompt();
+        populatePersonInfo();
 
         mUpdateProfile.setOnClickListener(this);
         mChangePassword.setOnClickListener(this);
         mDoB.setOnClickListener(this);
+    }
+
+    private void populatePersonInfo() {
+        try {
+            RestClientManager.getInstance(this).getPersonController().getTenantInformation(this);
+        } catch (NetworkErrorException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -125,9 +136,20 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onResponseSuccess(RequestResponse requestResponse) {
-        if(requestResponse != null){
+        if(requestResponse instanceof TenantInfoResponse){
+            putDetail((TenantInfoResponse)requestResponse);
+        }
+        else if(requestResponse != null) {
             Utilities.displayToast(this ,"Your details have been updated successfully");
         }
+
+    }
+
+    private void putDetail(TenantInfoResponse requestResponse) {
+        mFirstName.setText(requestResponse.getResult().getFirstName());
+        mLastName.setText(requestResponse.getResult().getLastName());
+        mDoB.setText(requestResponse.getResult().getDoB());
+        mContact.setText(requestResponse.getResult().getPhone());
     }
 
     @Override
