@@ -77,6 +77,8 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
                     try {
                         if (LoginSession.bm) {
 
+                            RestClientManager.getInstance(mContext).getBuildingManagerController().cancelBooking(facilityId, bookingId, BookingViewHolder.this);
+                        }else{
                             RestClientManager.getInstance(mContext).getPersonController().cancelBooking(facilityId, bookingId, BookingViewHolder.this);
                         }
                     } catch (NetworkErrorException e) {
@@ -87,15 +89,14 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             });
         }
 
-
         @Override
         public void onResponseSuccess(RequestResponse requestResponse) {
-
+            Utilities.displayToast(mContext, "Your booking has been cancelled successfully");
         }
 
         @Override
         public void onResponseFailure(String errorMessage) {
-
+            Utilities.displayToast(mContext, errorMessage);
         }
     }
 }
