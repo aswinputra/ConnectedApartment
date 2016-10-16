@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.sepgroup4.connectedapartment.Model.Booking;
@@ -25,7 +28,7 @@ import java.util.List;
  * Created by aswinhartono on 16/10/16.
  */
 
-public class ViewBookingActivity extends AppCompatActivity implements View.OnClickListener, RestResponseHandler {
+public class ViewBookingActivity extends AppCompatActivity implements RestResponseHandler {
     private RecyclerView mBookingRecyclerView;
     private FacilityList mFacilityList;
 
@@ -33,7 +36,9 @@ public class ViewBookingActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_booking);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_view_booking_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         checkBM();
     }
 
@@ -57,8 +62,22 @@ public class ViewBookingActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
-    public void onClick(View v) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            if(LoginSession.bm){
+                startActivity(MyActivityManager.intentToBMDashBoard(this));
+            }else{
+                startActivity(MyActivityManager.intentToTenantDashBoard(this));
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

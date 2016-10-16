@@ -114,7 +114,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/activity_bm_dashboard_reset_password_linearlayout"
+            android:id="@+id/activity_bm_dashboard_view_booking_linearlayout"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_below="@+id/activity_bm_dashboard_add_facility_linearlayout"
@@ -129,7 +129,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/reset_password"
+                android:text="@string/view_booking"
                 style="@style/ButtonTitle"/>
         </LinearLayout>
     </RelativeLayout>

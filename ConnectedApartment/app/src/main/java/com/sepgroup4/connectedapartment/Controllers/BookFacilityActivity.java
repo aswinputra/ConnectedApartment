@@ -85,10 +85,20 @@ public class BookFacilityActivity extends AppCompatActivity implements RestRespo
 
     private void getFacilities()
     {
-        try {
-            RestClientManager.getInstance(this).getPersonController().getFacilities(this);
-        } catch (NetworkErrorException e) {
-            e.printStackTrace();
+        if(LoginSession.bm)
+        {
+            try {
+                RestClientManager.getInstance(this).getBuildingManagerController().getFacilities(this);
+            } catch (NetworkErrorException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            try {
+                RestClientManager.getInstance(this).getPersonController().getFacilities(this);
+            } catch (NetworkErrorException e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.sepgroup4.connectedapartment.Model.LoginSession;
 import com.sepgroup4.connectedapartment.R;
 
 public class TenantDashboardActivity extends AppCompatActivity implements View.OnClickListener{
@@ -33,6 +34,7 @@ public class TenantDashboardActivity extends AppCompatActivity implements View.O
         mProfile.setOnClickListener(this);
         mBookActivity.setOnClickListener(this);
         mViewBooking.setOnClickListener(this);
+        LoginSession.bm=false;
     }
 
     @Override
