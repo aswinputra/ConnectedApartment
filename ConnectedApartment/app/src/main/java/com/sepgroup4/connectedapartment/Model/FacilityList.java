@@ -30,6 +30,7 @@ public class FacilityList {
 
     public String getFacilityName(int id){
         String facilityId = String.valueOf(id);
+        String facilityName;
         for (Map.Entry<String, String> facility : mFacilityMap.entrySet()){
             if(facility.getKey().equals(facilityId)){
                 return facility.getValue();

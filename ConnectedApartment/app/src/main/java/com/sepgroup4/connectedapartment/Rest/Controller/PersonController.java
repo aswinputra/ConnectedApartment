@@ -356,7 +356,7 @@ public class PersonController {
         @Override
         protected void onPostExecute(RequestResponse requestResponse) {
             if (requestResponse == null) {
-                handler.onResponseFailure("Something's wrong, please try again later");
+                handler.onResponseFailure("The facility is not available on that day");
             } else {
                 if (requestResponse.getSuccess()) {
                     handler.onResponseSuccess(requestResponse);

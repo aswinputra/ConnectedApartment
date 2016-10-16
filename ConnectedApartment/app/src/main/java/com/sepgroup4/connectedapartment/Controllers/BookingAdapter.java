@@ -48,12 +48,12 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
     public void onBindViewHolder(BookingViewHolder holder, int position) {
         Booking booking = mBookingArrayList.get(position);
         holder.mBookedTimeTv.setText(booking.getStartTime());
-        holder.mFacilityNameTv.setText(mFacilityList.getFacilityName(booking.getId()));
+        holder.mFacilityNameTv.setText(mFacilityList.getFacilityName(booking.getFacilityId()));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mBookingArrayList.size();
     }
 
     public class BookingViewHolder extends RecyclerView.ViewHolder implements RestResponseHandler{
